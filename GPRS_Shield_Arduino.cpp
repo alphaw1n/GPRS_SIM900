@@ -366,6 +366,10 @@ bool GPRS::disableCLIPring(void) {
     return sim900_check_with_cmd(F("AT+CLIP=0\r\n"), "OK\r\n", CMD);
 }
 
+bool GPRS::enableDDET(void) {
+    return sim900_check_with_cmd(F("AT+DDET=1\r\n"), "OK\r\n", CMD);
+}
+
 bool GPRS::getSubscriberNumber(char* number) {
     //AT+CNUM								--> 7 + CR = 8
     //+CNUM: "","+628157933874",145,7,4		--> CRLF + 45 + CRLF = 49
@@ -469,6 +473,10 @@ bool GPRS::isCallActive(char* number) {
         }
     }
     return false;
+}
+
+bool GPRS::getToneCode(char *code, int timeout) {
+    return true;
 }
 
 bool GPRS::getDateTime(char* buffer) {

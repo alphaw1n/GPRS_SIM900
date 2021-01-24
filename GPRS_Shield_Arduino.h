@@ -175,6 +175,11 @@ class GPRS {
     */
     bool disableCLIPring(void);
 
+    /**
+    */
+
+    bool enableDDET(void);
+
     /** Get Subscriber Number (your number) using AT+CNUM command, but if nothing returns, then
         you need to command this to your SIM900. (See AT+CPBS, AT+CPBW)
      	AT+CPBS="ON"
@@ -193,6 +198,10 @@ class GPRS {
             false on error
     */
     bool isCallActive(char* number);
+
+    /**
+    */
+    bool getToneCode(char *code, int timeout);
 
     /** get DateTime from SIM900 (see AT command: AT+CLTS=1) as string
         @param
